@@ -1,0 +1,115 @@
+<div id="loading_screen">
+    <img alt="loading" src="//kodekloud.s3.amazonaws.com/sites/5447ebb66e6f641987020000/3604f5c26997bea3de504de139debcec/loading.gif"/>
+</div>
+<div  id="main_content" style="display:none">
+    <ul class="breadcrumb">
+        <li><a href="/home">Home</a> </li>
+        <li class="active">Leasing</li>
+    </ul>
+    <div class="page_banner">
+        leasing
+    </div>
+    <div class="inside_page_content">
+        <div class="left_column">
+            <img class="inside_banner_image" alt="banner" src="//kodekloud.s3.amazonaws.com/sites/54ecad616e6f643c9b000000/dba9c1d5529d5d3696ed5ed711340a2d/Banner-Image-008_edited.jpg"/>
+            <p class="columns_2">
+            <h2>Market Summary</h2>
+                        <p>Avalon Centre is a solid food anchored retail shopping centre located in the busy retail node of Orleans.</p>
+               <br>
+               <strong>Total GLA:  </strong>84,198 square feet
+              
+         
+          
+          <section class="article-text">
+               
+                        <br>
+                        <p style="margin-bottom:0"><strong>Major Tenants:</strong></p>
+                        <p>Farm Boy
+                            <br>Beddington's
+                            <br>Barley Mow
+                           
+                        </p>    
+                        <br>
+                        <p><strong>Ancillary:  </strong>40,885 square feet (16 stores & services)</p>
+                   
+                        <table>
+                            <tr>
+                                <td style="width:215px"><strong>Demographics:</strong></td>
+                                <td style="width:100px">1km</td>
+                                <td style="width:100px">3km</td>
+                            </tr>
+                            <tr>
+                                <td style="width:215px"><strong>Total Population:</strong></td>
+                                <td style="width:100px">66,606</td>
+                                <td style="width:100px">112,416</td>
+                            </tr>
+                            <tr>
+                                <td style="width:215px"><strong>Total Households:</strong></td>
+                                <td style="width:100px">22,349</td>
+                                <td style="width:100px">22,349</td>
+                            </tr>
+                            <tr>
+                                <td style="width:215px"><strong>Household Average Income:</strong></td>
+                                <td style="width:100px">$118,028</td>
+                                <td style="width:100px">$115,405</td>
+                            </tr>
+                        </table>
+                        <br>
+             
+                       
+                        <br>
+                        <a href="//kodekloud.s3.amazonaws.com/sites/54ecad616e6f643c9b000000/69242bdecc74565793ddd2e03239b45e/Avalon%20Centre%20Site%20Plan%20March%202015.pdf" target="blank"><strong>Click to download site plan PDF</strong></a>
+                            
+                       
+        </div>
+        <div class="right_column">
+            <p class="right_column_header">centre information</p>
+            <div id="centre_info_container">
+                <script id="centre_info_template" type="x-tmpl-mustache/text">
+                    <p class="directory_content">{{name}}</p>
+                    <p class="directory_content">{{address1}}</p>
+                    <p class="directory_content">{{city}}, {{province_state}} {{postal_code}}</p>
+                </script>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        function renderAll (){
+            var propertyDetails = getPropertyDetails();
+            renderPageData('#centre_info_container','#centre_info_template',propertyDetails, 'property_details')
+            $("#loading_screen").hide();
+            $("#main_content").show();
+        }
+        
+    
+        function renderPageData(container, template, collection, type){
+            var item_list = [];
+            var item_rendered = [];
+            var template_html = $(template).html();
+            Mustache.parse(template_html);   // optional, speeds up future uses
+            if (type == "property_details"){
+                item_list.push(collection);
+                collection = []
+                collection = item_list;
+            }
+            $.each( collection , function( key, val ) {
+                var rendered = Mustache.render(template_html,val);
+                item_rendered.push(rendered);
+    
+            });
+            
+            $(container).show();
+            $(container).html(item_rendered.join(''));
+        };
+
+        loadMallData(renderAll);  
+
+    
+  
+    });
+    
+</script>
