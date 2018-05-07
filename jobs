@@ -10,25 +10,30 @@
 <div id="loading_screen">
     <img alt="loading" src="//kodekloud.s3.amazonaws.com/sites/5447ebb66e6f641987020000/3604f5c26997bea3de504de139debcec/loading.gif"/>
 </div>
-<div  id="main_content" style="display:none">
-    <ul class="breadcrumb">
-        <li><a href="/home">Home</a> </li>
-        <li><a href="/contact_us">Contact Us</a> </li>
-        <li class="active">Jobs</li>
-    </ul>
+<div id="main_content" style="display:none">
+    <nav>
+        <ul class="breadcrumb">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/contact_us">Contact Us</a></li>
+            <li class="active">Jobs</li>
+        </ul>
+    </nav>
     <div class="page_banner">
-        Jobs
+        <h2>Jobs</h2>
     </div>
     <div class="inside_page_content">
         <div class="left_column">
-            <img class="inside_banner_image" alt="banner" src="//kodekloud.s3.amazonaws.com/sites/54ecad616e6f643c9b000000/bedbb63d07540a15acced1f280477539/Banner-Image-004_edited.jpg"/>
+            <img class="inside_banner_image" alt="" src="//kodekloud.s3.amazonaws.com/sites/54ecad616e6f643c9b000000/bedbb63d07540a15acced1f280477539/Banner-Image-004_edited.jpg"/>
             <div class="promo_list_div" id="promo_list_container">
                 <script id="promo_list_template" type="x-tmpl-mustache/text">
                     <div class="promo_inside_content">
                         <div class="promo_desc_box" style="width:100%">
-                            <a href="../jobs/{{slug}}"><p class="promo_header right_column_header">{{name}}</p></a>
-                            <p class="directory_content promo_date"><a href="/stores/{{store_detail_btn}}">{{store_name}}</a><br>{{job_type}}<a href="../jobs/{{slug}}" class="btn btn-primary pull-right" style="margin-top:-17px">Read More</a></p>
-                             </div>
+                            <p class="promo_header right_column_header">{{name}}</p>
+                            <p class="directory_content promo_date">
+                                <a href="/stores/{{store_detail_btn}}">{{store_name}}</a>
+                                <br>{{job_type}}
+                                <a href="../jobs/{{slug}}" class="btn btn-primary pull-right" style="margin-top:-17px">Job Details</a>
+                            </p>
                         </div>
                     </div>
                 </script>
@@ -60,9 +65,6 @@
             all_jobs = all_jobs.reverse();
             jobs_array = []
             $.each( all_jobs , function( key, val ){
-                // today = new Date();
-                // webDate = new Date(val.show_on_web_date);
-                
                 today = moment();
                 webDate = moment(val.show_on_web_date);
                 if (today >= webDate) {
@@ -79,7 +81,6 @@
             $("#main_content").show();
         }
         
-    
         function renderPageData(container, template, collection, type){
             var item_list = [];
             var item_rendered = [];
@@ -103,47 +104,7 @@
             $(container).html(item_rendered.join(''));
         };
         
-        function get_month (id){
-            switch(id) {
-                case 0:
-                    month = "Jan"
-                    break;
-                case 1:
-                    month = "Feb"
-                    break;
-                case 2:
-                    month = "Mar"
-                    break;
-                case 3:
-                    month = "Apr"
-                    break;
-                case 4:
-                    month = "May"
-                    break;
-                case 5:
-                    month = "June"
-                    break;
-                case 6:
-                    month = "July"
-                    break;
-                case 7:
-                    month = "Aug"
-                    break;
-                case 8:
-                    month = "Sep"
-                    break;
-                case 9:
-                    month = "Oct"
-                    break;
-                case 10:
-                    month = "Nov"
-                    break;
-                case 11:
-                    month = "Dec"
-                    break;
-            }
-            return month;
-        }
+
         loadMallData(renderAll);  
     });
 </script>
