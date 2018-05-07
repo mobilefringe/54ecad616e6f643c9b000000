@@ -459,7 +459,6 @@
         	});
         });
 
-
         function show_results(id){
             if ( $("#"+id+"_results").is(":visible")){
                 $("#"+id+"_results").slideUp();
