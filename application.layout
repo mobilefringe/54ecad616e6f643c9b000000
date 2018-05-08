@@ -91,7 +91,7 @@
             });      
         });
         
-        setEndPoint('//thetwinpinesmall.mallmaverick.com/api/v4/twinpinesmall/all.json');
+        setEndPoint('//avaloncentre.mallmaverick.com/api/v4/avaloncentre/all.json');
     </script>
     <style>
         /*custom styles*/
