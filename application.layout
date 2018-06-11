@@ -92,7 +92,7 @@
             });      
         });
         
-        setEndPoint('//avaloncentre.mallmaverick.com/api/v4/avaloncentre/all.json');
+        setEndPoint('//avaloncentre.mallmaverick.com/api/v4/twinpine/all.json');
     </script>
     <style>
         /*custom styles*/
