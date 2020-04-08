@@ -88,7 +88,7 @@
             $("#main_content").show();
             
             // dynamic banner 
-            var bannerInfo = getRepoDetailsByName('Stores Banner')
+            var bannerInfo = getRepoDetailsByName('Stores Promotions Banner')
             var bannerImageUrl = bannerInfo.images[0].image_url
             if (bannerImageUrl) {
                 $(".inside_banner_image").attr("src", bannerImageUrl);
